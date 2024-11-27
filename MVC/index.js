@@ -1,6 +1,7 @@
 const express = require("express");
-const dbconnect = require("dbconnect");
+const dotenv = require("dotenv").config();
 const router = require("./routes/product.route");
+const dbconnect = require("./Config/db");
 
 const Products = express();
 
