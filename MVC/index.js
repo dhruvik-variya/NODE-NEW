@@ -1,5 +1,4 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
 const router = require("./routes/product.route");
 const dbconnect = require("./Config/db");
 
@@ -7,8 +6,8 @@ const Products = express();
 
 Products.use(express.json());
 
-Products.use("/products", router);
 
+Products.use("/products",router)
 const PORT = process.env.PORT || 5001;
 
 Products.listen(PORT, () => {
