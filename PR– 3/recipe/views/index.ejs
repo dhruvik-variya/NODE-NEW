@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Recipe List</h1>
+    <div id="parent"></div>
+
+
+</body>
+
+<script>
+    const recipeList = async () =>{
+        const response = await fetch('/recipe/all');
+        const data = await response.json(); 
+
+        data.forEach(ele =>{ 
+
+            document.getElementById('parent').innerHTML =`
+            <div>
+                        <h2>${ele.name}</h2>
+                        <img src="${ele.imageUrl}" alt="${ele.name}" />
+                        <p><strong>Description:</strong> ${ele.description}</p>
+                        <p><strong>Preparation Time:</strong> ${ele.preparationTime}</p>
+                        <p><strong>Cooking Time:</strong> ${ele.cookingTime}</p>
+                        <p><strong>Country:</strong> ${ele.country}</p>
+                        <p><strong>Vegetarian:</strong> ${ele.veg ? 'Yes' : 'No'}</p>
+            </div>`  
+          })
+    }
+    recipeList();
+</script>
+</html>
