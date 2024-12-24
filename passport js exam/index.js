@@ -10,7 +10,6 @@ const port = process.env.PORT;
 app.use(express.json());
 
 
-
 app.get('/', (req,res)=>{
     res.send('welcome to the my website !');
 })

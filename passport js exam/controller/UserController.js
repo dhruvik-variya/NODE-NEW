@@ -13,11 +13,11 @@ const Signup = async (req, res) => {
 const login = async (req,res) =>{
 
     try {
-        const {username,password} = req.body;
-        const user = await User.findOne({ username: username});
+        const {email,password} = req.body;
+        const user = await User.findOne({ email: email});
     
         if(!user){
-            return res.status(401).json({error: 'Invalid username or password'});
+            return res.status(401).json({error: 'Invalid email or password'});
         }
     
         res.status(200).json({message : "Login successful !!"})
